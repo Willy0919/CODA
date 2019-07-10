@@ -94,6 +94,30 @@ def getAttentionDensity(image,nlevel, dots,  sigmas, margin_size,rescale = 0.125
 
     return np.array(dmap)
 
+def getLevel(nlevel, theta,thresholds,dots,k):
+    PN2 = torch.FloatTensor(dots)
+    AB = torch.mm(PN2, torch.t(PN2))
+    AA = torch.unsqueeze(torch.diag(AB), 1)
+    DIST = torch.sqrt(AA - 2 * AB + AA.t())
+    sorted, indices = torch.sort(DIST)
+    d = 0.2*torch.mean(sorted[:, 1:1 + k], 1)
+    v_dots = []
+    for i in d:
+        th = nlevel
+        for j in range(nlevel):
+            if thresholds[j]>= i:
+                th = j + 1
+                break
+        v_dot = []
+        for l in range(1, nlevel+1):
+            tmp = (l - th) * (l - th) / (2 * theta)
+            v_dot.append(np.exp(-tmp))
+        v_dot = np.array(v_dot)
+        v_dot = v_dot/np.sum(v_dot)
+        v_dots.append(v_dot)
+
+    return torch.FloatTensor(v_dots)
+
 def getMaskedDots(image, dots, mask):
     
     dot_map = np.zeros(image.shape[:2], dtype=np.uint32)
