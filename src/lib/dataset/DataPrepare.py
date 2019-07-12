@@ -18,6 +18,23 @@ def prepareShangHaiTech():
                 gt_path = os.path.join(DATASET_PATH, 'ground_truth', 'GT_' + img_name.split('.')[0] + '.mat')
                 fout.write(image_path + ' ' + gt_path + '\n')
             fout.close()
+            
+def prepareMall():
+    set_path = 'data/Mall'
+    train_f = open(os.path.join(set_path, 'train.txt'), 'w')
+    for i in range(1, 801):
+        file = 'seq_{:0>6}.jpg'.format(i)
+        dot = 'dmap_{}.mat'.format(i)
+        train_f.write(os.path.join(set_path, 'frames', file) + '\n')  # +' '+os.path.join(set_path,'gt',dot)
+
+    train_f.closed
+    test_f = open(os.path.join(set_path, 'test.txt'), 'w')
+    for i in range(801, 2001):
+        file = 'seq_{:0>6}.jpg'.format(i)
+        test_f.write(os.path.join(set_path, 'frames', file) + '\n')  # +' '+os.path.join(set_path,'gt',dot)
+    test_f.closed
+    
+
 
 nameFuncMapping = {'shanghai':prepareShangHaiTech}
 
