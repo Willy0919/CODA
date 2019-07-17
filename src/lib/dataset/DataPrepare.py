@@ -34,8 +34,44 @@ def prepareMall():
         test_f.write(os.path.join(set_path, 'frames', file) + '\n')  # +' '+os.path.join(set_path,'gt',dot)
     test_f.closed
     
+def prepareVGGCell():
+    DATASET_ROOT = 'data/VGGCell'
 
+    test_file = os.path.join('data/test.txt')
+    f = open(test_file, 'w')
+    for img in os.listdir(DATASET_ROOT):
+        print(img)
+        if img[-8:-4] == 'cell' and img.split('.')[-1] == 'png':
+            f.write(os.path.join(DATASET_ROOT,img) +'\n')
 
+    f.close()
+
+def prepareDublinCell():
+    DATASET_ROOT = 'data/DublinCell'
+
+    for phase in ['trainval','test']:
+        DATASET_PATH = os.path.join(DATASET_ROOT,phase)
+        fout = open(DATASET_PATH+'.txt','w+')
+        for img_name in os.listdir(os.path.join(DATASET_PATH, 'images')):
+            image_path = os.path.join(DATASET_PATH, 'images', img_name)
+            #gt_path = os.path.join(DATASET_PATH, 'GT', img_name)
+            fout.write(image_path + '\n')
+        fout.close()
+
+def prepareMBMCell():
+    DATASET_ROOT = 'data/MBMCell'
+
+    test_file = os.path.join('data/test.txt')
+    f = open(test_file, 'w')
+    for img in os.listdir(DATASET_ROOT):
+        print(img)
+        if img.split('_')[-2] != 'dots' and img.split('.')[-1] == 'png':
+            f.write(os.path.join(DATASET_ROOT,img) +'\n')
+
+    f.close()
+    
+
+        
 nameFuncMapping = {'shanghai':prepareShangHaiTech}
 
 #def Mirror()
