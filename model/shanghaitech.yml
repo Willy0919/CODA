@@ -1,0 +1,31 @@
+DATASET: 'ShanghaiTech'
+ShanghaiTech:
+  #path params
+  DATA_PATH: './data/ShanghaiTech/part_A_final/'
+  TARGET_DATA_PATH: './data/ShanghaiTech/part_B_final/'
+  TENSOR_BOARD_PATH: './exp/ShanghaiTech'
+  PRE_TRAINED_PATH: ''
+  PERSPECTIVE_MAP: ''
+  MASK_PATH: ''
+
+  #net params
+  BATCH_SIZE: 16
+  LEARNING_RATE: 1e-6
+  EPOCH_NUM: 250000
+  STEPS: []
+  DECAY_RATE: 0.1
+  START_EPOCH: 15601
+  SNAP_SHOT: 200
+  TEST_SIZE: {'train':20,'test':200}
+
+  #image operation(not use)
+  FLIP: True
+  Crop: None
+  SIGMA: 4
+  USE_PERSPECTIVE: False
+  USE_MASK: False
+  RESIZE: 512
+  USE_KNEAREST: False
+  K: -1
+  BETA: 0.3
+
