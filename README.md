@@ -3,6 +3,15 @@ Implementation for [CODA: Counting Objects via Scale-aware Adversarial Adaption]
 
 
 ```
+* data
+       * dataset folders
+       
+* exp
+       * experiments logs
+       
+* model
+       * %dataset name%.yml: dataset configurations
+       
 * src/lib
         * dataset
             * DataPrepare.py: preparing the train/val/test list for training/testing
@@ -16,5 +25,7 @@ Implementation for [CODA: Counting Objects via Scale-aware Adversarial Adaption]
             * image_opt.py: image visualization
             * Logger.py: tensorboard logger
         
-        
+* tools
+       * demo.py
+       * train_net.py
 ```
