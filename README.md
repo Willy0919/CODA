@@ -13,15 +13,15 @@ Implementation for [CODA: Counting Objects via Scale-aware Adversarial Adaption]
        * %dataset name%.yml: dataset configurations
        
 * src/lib
-        * dataset
+       * dataset
             * DataPrepare.py: preparing the train/val/test list for training/testing
             * mall/shanghaitech/trancos.py: dataset redefinition
-        * network
+       * network
             * network.py: network definition
-        * opt
+       * opt
             * train.py: training operation
             * lr_policy.py: lr policy 
-        * utils
+       * utils
             * image_opt.py: image visualization
             * Logger.py: tensorboard logger
         
