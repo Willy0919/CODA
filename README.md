@@ -34,3 +34,16 @@ Implementation for [CODA: Counting Objects via Scale-aware Adversarial Adaption]
        * train_net.py
        * train_net_adv.py
 ```
+
+
+## pretrain CN
+
+```
+python tools/train_net.py
+```
+
+## density adaption
+
+```
+python tools/train_net_adv.py
+```
