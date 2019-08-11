@@ -11,15 +11,18 @@ Implementation for [CODA: Counting Objects via Scale-aware Adversarial Adaption]
        
 * model
        * %dataset name%.yml: dataset configurations
+       * %dataset name%_adv.yml: dataset configurations for adversarial training and testing
        
 * src/lib
        * dataset
             * DataPrepare.py: preparing the train/val/test list for training/testing
             * mall/shanghaitech/trancos.py: dataset redefinition
        * network
-            * network.py: network definition
+            * cn.py: counting network definition
+            * discriminator.py: discriminator definition
        * opt
-            * train.py: training operation
+            * train.py: training operation for counting network
+            * train_adv.py: training operation for adversarial training
             * lr_policy.py: lr policy 
        * utils
             * image_opt.py: image visualization
@@ -27,5 +30,7 @@ Implementation for [CODA: Counting Objects via Scale-aware Adversarial Adaption]
         
 * tools
        * demo.py
+       * demo_adv.py
        * train_net.py
+       * train_net_adv.py
 ```
